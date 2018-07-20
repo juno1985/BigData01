@@ -1,0 +1,3 @@
+---2018.07.20---
+	1.zookeeper集群有问题,使用单机192.168.4.133:2181后Conf.java跑通
+	2.Conf.java需要看一下,尤其CountDownLatch对线程同步
