@@ -1,3 +1,15 @@
 ---2018.07.20---
 	1.zookeeper集群有问题,使用单机192.168.4.133:2181后Conf.java跑通
 	2.Conf.java需要看一下,尤其CountDownLatch对线程同步
+---2018.07.21--
+	使用zookeepr开发分布式服务上下线感知(org.softcits.bigdata.zk01)
+	DistributedServer演示服务上线后注册
+	DistributedClient演示获取当前存活服务
+	巧妙设计:
+	1. 利用Zookeeper临时节点而不是永久节点,这样Zookeeper重启后节点信息不保存,服务启动后再重新注册
+	2. 使用Zookeeper自增长id节点来避免服务注册冲突
+	3. Zookeeper节点有两个属性,节点名(可以保存服务所在主机名)和节点数据(可以保存服务名)
+	4. 利用Zookeeper的监听,通过重写Watcher的process方法来获取服务上下线时创建删除节点事件,从而重新获取Zookeeper节点注册的服务来动态感知服务。
+		a.服务创建节点时->服务启动后连接Zookeeper然后创建节点
+		b.服务删除节点时->服务因某种异常断开与Zookeeper连接,此时Zookeeper会自动删除此节点
+	其中讲解了Deamon守护线程,即主线程结束后Deamon线程继续运行,不然普通方式创建子线程时,只要子线程不结束则主线程也不结束。
