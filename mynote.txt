@@ -1,7 +1,7 @@
 ---2018.07.20---
 	1.zookeeper集群有问题,使用单机192.168.4.133:2181后Conf.java跑通
 	2.Conf.java需要看一下,尤其CountDownLatch对线程同步
----2018.07.21--
+---2018.07.21---
 	使用zookeepr开发分布式服务上下线感知(org.softcits.bigdata.zk01)
 	DistributedServer演示服务上线后注册
 	DistributedClient演示获取当前存活服务
@@ -13,3 +13,9 @@
 		a.服务创建节点时->服务启动后连接Zookeeper然后创建节点
 		b.服务删除节点时->服务因某种异常断开与Zookeeper连接,此时Zookeeper会自动删除此节点
 	其中讲解了Deamon守护线程,即主线程结束后Deamon线程继续运行,不然普通方式创建子线程时,只要子线程不结束则主线程也不结束。
+---2018.07.22---
+	异常可以释放syncronized锁
+	lock和syncronized区别
+	1. Lock是个接口
+	2. Lock必须手动释放锁而synchronized代码执行完成后就会释放锁
+	3. Lock中有中断锁方法,即等待的获取锁的线程可以终止等待去做些别的事情
