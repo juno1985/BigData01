@@ -19,3 +19,11 @@
 	1. Lock是个接口
 	2. Lock必须手动释放锁而synchronized代码执行完成后就会释放锁
 	3. Lock中有中断锁方法,即等待的获取锁的线程可以终止等待去做些别的事情
+---2018.07.23---
+	常用线程池：
+		SingleThread--固定单线程在池子中,好处就是可以保证提交任务的顺序执行
+		CachedThreadPool--缓冲线程池,可灵活回收空闲线程
+		FixedThreadPool--创建固定线程数的线程池
+		ScheduledThreadPool--支持延时或周期性的任务执行
+	创建多线程时使用java.lang.Runable和 java.util.concurrent.Callable<V>区别
+	1. Callbale中V call() throws Exception; 是有返回值(泛型)的,而Runable的run()方法没有返回值
