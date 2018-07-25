@@ -27,3 +27,5 @@
 		ScheduledThreadPool--支持延时或周期性的任务执行
 	创建多线程时使用java.lang.Runable和 java.util.concurrent.Callable<V>区别
 	1. Callbale中V call() throws Exception; 是有返回值(泛型)的,而Runable的run()方法没有返回值
+---2018.07.25---
+	多线程obj.notify和obj.wait使用的前提是加同一个对象锁synchronized(obj){obj.notify()/obj.wait()}
