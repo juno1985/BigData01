@@ -4,7 +4,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import org.softcits.netty.sendobject.bean.Person;
 
 public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	// 客户端连接服务器后被调用

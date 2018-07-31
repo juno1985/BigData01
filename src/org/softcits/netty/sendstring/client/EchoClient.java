@@ -10,7 +10,6 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
 
-import org.softcits.netty.sendobject.coder.PersonEncoder;
 
 /**
  * • 连接服务器 • 写数据到服务器 • 等待接受服务器返回相同的数据 • 关闭连接
