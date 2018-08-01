@@ -29,3 +29,30 @@
 	1. Callbale中V call() throws Exception; 是有返回值(泛型)的,而Runable的run()方法没有返回值
 ---2018.07.25---
 	多线程obj.notify和obj.wait使用的前提是加同一个对象锁synchronized(obj){obj.notify()/obj.wait()}
+---2018.08.01---
+	netty传输对象序列化时,通过对象流ObjectOutputStream包装字节流ByteArrayOutputStream,从而得到对象序列化之后的字节数组bytes[]
+		byte[] bytes = null;
+		ByteArrayOutputStream bo = new ByteArrayOutputStream();
+		ObjectOutputStream oo = null;
+		...
+			oo = new ObjectOutputStream(bo);
+			oo.writeObject(obj);
+			bytes = bo.toByteArray();
+		...
+	反序列化,同样也是对象流ObjectInputStream包装字节流ByteArrayInputStream
+	Object obj = null;
+		ByteArrayInputStream bi = new ByteArrayInputStream(bytes);
+		ObjectInputStream oi = null;
+		try {
+			oi = new ObjectInputStream(bi);
+			obj = oi.readObject();
+			...
+	
+	netty的客户端注册handler
+	@Override
+	protected void initChannel(SocketChannel ch)throws Exception {
+			// 注册序列化person的handler
+			ch.pipeline().addLast(new PersonEncoder());  //执行顺序1
+			//注册发送person对象的handler
+			ch.pipeline().addLast(new EchoClientHandler());   //执行顺序2
+				}
