@@ -56,3 +56,17 @@
 			//注册发送person对象的handler
 			ch.pipeline().addLast(new EchoClientHandler());   //执行顺序2
 				}
+---2018.8.2---
+	NIO与传统IO相比优势并不是速度快,而是体现在并发量上。
+	传统IO会发生线程阻塞,如下
+	while(true){
+		//等待网络连接时会阻塞线程
+		socket.accept();
+		input=socket.getInput();
+		output=socket.getOutput();
+		//读写过程会发生阻塞
+		input.read();
+		output.write();
+	}
+	而NIO是把连接和读写都交给操作系统内核来做,并注册事件,内核操作结束后通知事件
+	
