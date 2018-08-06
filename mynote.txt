@@ -1,6 +1,6 @@
 ---2018.07.20---
 	1.zookeeper集群有问题,使用单机192.168.4.133:2181后Conf.java跑通
-	2.Conf.java需要看一下,尤其CountDownLatch对线程同步
+	2.Conf.java需要看一下,尤其CountDownLatch对线程同步-- await()和countdown()
 ---2018.07.21---
 	使用zookeepr开发分布式服务上下线感知(org.softcits.bigdata.zk01)
 	DistributedServer演示服务上线后注册
@@ -69,4 +69,5 @@
 		output.write();
 	}
 	而NIO是把连接和读写都交给操作系统内核来做,并注册事件,内核操作结束后通知事件
-	
+---2018.8.6---
+	org.softcits.rpc.customised的服务端看完了,感觉netty的东西还得深看,明天看客户端
