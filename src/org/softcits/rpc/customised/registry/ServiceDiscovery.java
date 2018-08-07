@@ -108,7 +108,7 @@ public class ServiceDiscovery {
 				// 获取节点中的服务器地址
 				byte[] bytes = zk.getData(Constant.ZK_REGISTRY_PATH + "/"
 						+ node, false, null);
-				// 存储到list中
+				// 存储到list中,字符串的反序列化
 				dataList.add(new String(bytes));
 			}
 			LOGGER.debug("node data: {}", dataList);

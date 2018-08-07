@@ -34,7 +34,7 @@ public class RpcProxy {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> T create(Class<?> interfaceClass) {
+	public <T> T create(Class<T> interfaceClass) {
 		return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(),
 				new Class<?>[] { interfaceClass }, new InvocationHandler() {
 					public Object invoke(Object proxy, Method method,
