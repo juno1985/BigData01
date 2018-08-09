@@ -73,3 +73,16 @@
 	org.softcits.rpc.customised的服务端看完了,感觉netty的东西还得深看,明天看客户端
 ---2018.8.7---
 	完成自定义rpc框架代码查看,具体参图2个png
+---2018.8.8---
+	jvm垃圾回收1.标记算法(会产生内存碎片)2.复制算法(4/5->1/5,因为eden中的对象大多朝生夕死)
+	垃圾收集器
+	1.Serial收集器-Stop the world.
+	2.Parallel收集器-gc和用户线程同时执行
+	3.cms收集器-并发标记低停顿(标记(stop-the-world)->同时和用户线程运行从而并发清理)
+---2018.8.9---
+	jvm堆溢出分析方法
+	生成dump:jvm运行时使用-XXHeapDumpOnOutOfMemoryError -XX:HeapDumpPath=c:/heap.dump
+	使用MemoryAnalyzer打开dump文件,可以看到生成了多少个对象,对象的类型,以及占用堆内存
+	听了今天的课坚定了走大数据的路线啊
+	
+	
