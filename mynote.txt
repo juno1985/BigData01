@@ -84,5 +84,8 @@
 	生成dump:jvm运行时使用-XXHeapDumpOnOutOfMemoryError -XX:HeapDumpPath=c:/heap.dump
 	使用MemoryAnalyzer打开dump文件,可以看到生成了多少个对象,对象的类型,以及占用堆内存
 	听了今天的课坚定了走大数据的路线啊
+---2018.8.13---
+	离线推荐系统: logfile->flume->hdfs->mapreduce(数据预处理)->hive->mysql
+	实时推荐系统: logfile->kafka->storm/sparkStreaming
 	
 	
