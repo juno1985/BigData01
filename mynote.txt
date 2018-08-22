@@ -26,7 +26,7 @@
 		FixedThreadPool--创建固定线程数的线程池
 		ScheduledThreadPool--支持延时或周期性的任务执行
 	创建多线程时使用java.lang.Runable和 java.util.concurrent.Callable<V>区别
-	1. Callbale中V call() throws Exception; 是有返回值(泛型)的,而Runable的run()方法没有返回值
+	1. Callable中V call() throws Exception; 是有返回值(泛型)的,而Runable的run()方法没有返回值
 ---2018.07.25---
 	多线程obj.notify和obj.wait使用的前提是加同一个对象锁synchronized(obj){obj.notify()/obj.wait()}
 ---2018.08.01---
@@ -87,5 +87,25 @@
 ---2018.8.13---
 	离线推荐系统: logfile->flume->hdfs->mapreduce(数据预处理)->hive->mysql
 	实时推荐系统: logfile->kafka->storm/sparkStreaming
-	
+---2018.8.15---
+	hadoop包括
+		hdfs:控制台http://192.168.4.132:50070
+			namenode:hadoop-deamon.sh start namenode
+			datanode:hadoop-deamon.sh start datanode
+		yarn:控制台http://192.168.4.132:8088
+			reourcemanager:yarn-daemon.sh start resourcemanager
+			nodemanager:yarn-daemon.sh start nodemanager
+	hadoop指令:
+		hadoop fs -ls /
+		hadoop fs -put trail01.txt /
+		hadoop fs -get /trail01.txt
+		hadoop fs -cat /trail01.txt
+---2018.8.16---
+	hdfs设置副本数量: hadoop fs -setrep xx /a.txt
+	其中副本数量只是元数据记载,具体能保存多少份要看有多少datanode物理机器
+---2018.8.22---
+NameNode Metadata -> data description,maintain the file tree struture
+NameNode(FileName,replicas,block-ids,block_id1:host,block_id2:host,...)
+fsimage/edits/fstime
+secondary name node只是负责fsimage和edits合并,并不提供name node的容灾服务
 	
